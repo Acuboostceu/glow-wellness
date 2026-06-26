@@ -124,7 +124,7 @@ export default function Home() {
           <div style={{ background: 'rgba(245,236,216,0.7)', borderRadius: '12px', padding: '24px', textAlign: 'left' }}>
             <p style={{ color: '#7A6A58', fontSize: '13px', lineHeight: 1.7 }}>
               <span style={{ color: '#A87820', fontWeight: 500 }}>A family rooted in healing — </span>
-              Glow Wellness is a second-generation practice. Jun Woo&apos;s father is also a Doctor of Eastern Medicine, and this legacy of dedication to Eastern medicine flows through everything we do. Together, Jiyeon and Jun Woo have created a clinic where tradition, science, and compassionate care come together.
+              Glow Wellness is a second-generation practice. Jun Woo&apos;s father is also a Doctor of Eastern Medicine, and this legacy of dedication to Eastern medicine flows through everything we do. Together, Dr. Lee and Dr. Kim have created a clinic where tradition, science, and compassionate care come together.
             </p>
           </div>
         </div>
