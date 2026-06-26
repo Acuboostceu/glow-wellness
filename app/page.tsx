@@ -172,55 +172,68 @@ export default function Home() {
 
       {/* CONTACT */}
       <section id="contact" style={{ background: 'linear-gradient(180deg, #6A5040 0%, #4A3728 50%, #3A2A1E 100%)', padding: '72px 48px' }}>
-        <div style={{ maxWidth: '860px', margin: '0 auto' }}>
-          <span style={{ display: 'inline-block', background: '#5C4535', color: '#E8B84B', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', padding: '3px 12px', borderRadius: '20px', marginBottom: '16px' }}>Get in touch</span>
-          <h2 style={{ color: '#FFF8EE', fontSize: '32px', fontWeight: 500, marginBottom: '8px' }}>Send us a message</h2>
-          <p style={{ color: '#C4B0A0', fontSize: '14px', marginBottom: '36px' }}>We&apos;ll get back to you as soon as possible.</p>
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '480px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-              {[
-                { label: 'Name', key: 'name', type: 'text', placeholder: 'Your name' },
-                { label: 'Phone', key: 'phone', type: 'tel', placeholder: '(949) 000-0000' },
-              ].map(f => (
-                <div key={f.key} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <label style={labelStyle}>{f.label}</label>
-                  <input type={f.type} placeholder={f.placeholder} value={form[f.key as keyof typeof form]}
-                    onChange={e => setForm(p => ({ ...p, [f.key]: e.target.value }))}
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '64px', alignItems: 'start' }}>
+            
+            {/* 왼쪽 텍스트 */}
+            <div>
+              <span style={{ display: 'inline-block', background: '#5C4535', color: '#E8B84B', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase' as const, padding: '3px 12px', borderRadius: '20px', marginBottom: '16px' }}>Get in touch</span>
+              <h2 style={{ color: '#FFF8EE', fontSize: '32px', fontWeight: 500, marginBottom: '16px', lineHeight: 1.2 }}>Send us a message</h2>
+              <p style={{ color: '#C4B0A0', fontSize: '14px', lineHeight: 1.8, marginBottom: '24px' }}>We&apos;ll get back to you as soon as possible.</p>
+              <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '12px' }}>
+                <a href="tel:9495379265" style={{ color: '#E8B84B', fontSize: '13px', textDecoration: 'none' }}>Newport Beach · 949-537-9265</a>
+                <a href="tel:5623158111" style={{ color: '#E8B84B', fontSize: '13px', textDecoration: 'none' }}>Hacienda Heights · 562-315-8111</a>
+              </div>
+            </div>
+
+            {/* 오른쪽 폼 */}
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' as const, gap: '16px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                {[
+                  { label: 'Name', key: 'name', type: 'text', placeholder: 'Your name' },
+                  { label: 'Phone', key: 'phone', type: 'tel', placeholder: '(949) 000-0000' },
+                ].map(f => (
+                  <div key={f.key} style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
+                    <label style={labelStyle}>{f.label}</label>
+                    <input type={f.type} placeholder={f.placeholder} value={form[f.key as keyof typeof form]}
+                      onChange={e => setForm(p => ({ ...p, [f.key]: e.target.value }))}
+                      style={inputStyle} />
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
+                  <label style={labelStyle}>Email</label>
+                  <input type="email" placeholder="your@email.com" value={form.email}
+                    onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
                     style={inputStyle} />
                 </div>
-              ))}
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              <label style={labelStyle}>Email</label>
-              <input type="email" placeholder="your@email.com" value={form.email}
-                onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
-                style={inputStyle} />
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              <label style={labelStyle}>Preferred location</label>
-              <select value={form.location} onChange={e => setForm(p => ({ ...p, location: e.target.value }))}
-                style={inputStyle}>
-                <option>Newport Beach</option>
-                <option>Hacienda Heights</option>
-                <option>No preference</option>
-              </select>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              <label style={labelStyle}>Message</label>
-              <textarea placeholder="Tell us how we can help..." value={form.message} rows={4}
-                onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
-                style={{ ...inputStyle, resize: 'none', fontFamily: 'inherit' }} />
-            </div>
-            <button type="submit" disabled={status === 'sending'}
-              style={{ background: '#E8B84B', color: '#2C1E12', border: 'none', padding: '12px 28px', borderRadius: '4px', fontSize: '12px', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', cursor: 'pointer', alignSelf: 'flex-start' }}>
-              {status === 'sending' ? 'Sending...' : 'Send message'}
-            </button>
-            {status === 'sent' && <p style={{ color: '#E8B84B', fontSize: '13px' }}>Message sent! We&apos;ll be in touch soon.</p>}
-            {status === 'error' && <p style={{ color: '#F09595', fontSize: '13px' }}>Something went wrong. Please call us directly.</p>}
-          </form>
+                <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
+                  <label style={labelStyle}>Preferred location</label>
+                  <select value={form.location} onChange={e => setForm(p => ({ ...p, location: e.target.value }))}
+                    style={inputStyle}>
+                    <option>Newport Beach</option>
+                    <option>Hacienda Heights</option>
+                    <option>No preference</option>
+                  </select>
+                </div>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
+                <label style={labelStyle}>Message</label>
+                <textarea placeholder="Tell us how we can help..." value={form.message} rows={4}
+                  onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
+                  style={{ ...inputStyle, resize: 'none' as const, fontFamily: 'inherit' }} />
+              </div>
+              <button type="submit" disabled={status === 'sending'}
+                style={{ background: '#E8B84B', color: '#2C1E12', border: 'none', padding: '12px 28px', borderRadius: '4px', fontSize: '12px', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase' as const, cursor: 'pointer', alignSelf: 'flex-start' }}>
+                {status === 'sending' ? 'Sending...' : 'Send message'}
+              </button>
+              {status === 'sent' && <p style={{ color: '#E8B84B', fontSize: '13px' }}>Message sent! We&apos;ll be in touch soon.</p>}
+              {status === 'error' && <p style={{ color: '#F09595', fontSize: '13px' }}>Something went wrong. Please call us directly.</p>}
+            </form>
+          </div>
         </div>
       </section>
-
       {/* FOOTER */}
       <footer style={{ background: '#2C1E12', padding: '24px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <span style={{ color: '#6B5E50', fontSize: '11px' }}>© 2026 Glow Wellness · Licensed Acupuncture & Eastern Medicine</span>
