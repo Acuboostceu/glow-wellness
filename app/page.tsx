@@ -109,8 +109,8 @@ export default function Home() {
 
           <div className="grid-2" style={{ marginBottom: '20px' }}>
             {[
-              { name: 'Dr. Lee, L.Ac., DAcHM', title: 'Co-founder & Practitioner', bio: 'Licensed since 2015, Jiyeon brings a unique dual perspective — trained first as a registered nurse in South Korea, she bridges Western clinical care with the holistic principles of acupuncture and herbal medicine.' },
-              { name: 'Dr. Kim, L.Ac., DAcHM', title: 'Co-founder & Practitioner', bio: 'Licensed since 2015, Jun Woo holds a Bachelor\'s in Biochemistry and a Doctorate in Acupuncture and Herbal Medicine. He serves as faculty at South Baylo, Dongguk, and Wongu University, bringing academic rigor to every patient visit.' },
+              { name: 'Jiyeon Lee, L.Ac., DAcHM', title: 'Co-founder & Practitioner', bio: 'Licensed since 2015, Dr. Lee brings a unique dual perspective — trained first as a registered nurse in South Korea, she bridges Western clinical care with the holistic principles of acupuncture and herbal medicine.' },
+              { name: 'Jun Woo Kim, L.Ac., DAcHM', title: 'Co-founder & Practitioner', bio: 'Licensed since 2015, Dr. Kim holds a Bachelor\'s in Biochemistry and a Doctorate in Acupuncture and Herbal Medicine. He serves as faculty at South Baylo, Dongguk, and Wongu University, bringing academic rigor to every patient visit.' },
             ].map(p => (
               <div key={p.name} style={{ background: 'rgba(255,255,255,0.6)', borderRadius: '12px', padding: '28px', textAlign: 'left' }}>
                 <div style={{ width: '36px', height: '3px', background: '#D4A833', marginBottom: '16px', borderRadius: '2px' }} />
