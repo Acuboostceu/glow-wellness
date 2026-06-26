@@ -109,11 +109,14 @@ export default function Home() {
 
           <div className="grid-2" style={{ marginBottom: '20px' }}>
             {[
-              { name: 'Jiyeon Lee, L.Ac., DAcHM', title: 'Co-founder & Practitioner', bio: 'Licensed since 2015, Dr. Lee brings a unique dual perspective — trained first as a registered nurse in South Korea, she bridges Western clinical care with the holistic principles of acupuncture and herbal medicine.' },
-              { name: 'Jun Woo Kim, L.Ac., DAcHM', title: 'Co-founder & Practitioner', bio: 'Licensed since 2015, Dr. Kim holds a Bachelor\'s in Biochemistry and a Doctorate in Acupuncture and Herbal Medicine. He serves as faculty at South Baylo, Dongguk, and Wongu University, bringing academic rigor to every patient visit.' },
+              { name: 'Jiyeon Lee, L.Ac., DAcHM', title: 'Co-founder & Practitioner', photo: '/dr-lee.jpg', bio: 'Licensed since 2015, Dr. Lee brings a unique dual perspective — trained first as a registered nurse in South Korea, she bridges Western clinical care with the holistic principles of acupuncture and herbal medicine.' },
+              { name: 'Jun Woo Kim, L.Ac., DAcHM', title: 'Co-founder & Practitioner', photo: '/dr-kim.jpg', bio: 'Licensed since 2015, Dr. Kim holds a Bachelor\'s in Biochemistry and a Doctorate in Acupuncture and Herbal Medicine. He serves as faculty at South Baylo, Dongguk, and Wongu University, bringing academic rigor to every patient visit.' },
             ].map(p => (
               <div key={p.name} style={{ background: 'rgba(255,255,255,0.6)', borderRadius: '12px', padding: '28px', textAlign: 'left' }}>
-                <div style={{ width: '36px', height: '3px', background: '#D4A833', marginBottom: '16px', borderRadius: '2px' }} />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px' }}>
+                  <Image src={p.photo} alt={p.name} width={48} height={48} style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', flexShrink: 0 }} />
+                  <div style={{ width: '36px', height: '3px', background: '#D4A833', borderRadius: '2px' }} />
+                </div>
                 <h3 style={{ color: '#2C1E12', fontSize: '15px', fontWeight: 500, marginBottom: '4px' }}>{p.name}</h3>
                 <p style={{ color: '#D4A833', fontSize: '11px', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '12px' }}>{p.title}</p>
                 <p style={{ color: '#7A6A58', fontSize: '13px', lineHeight: 1.7 }}>{p.bio}</p>
