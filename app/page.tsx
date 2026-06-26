@@ -81,7 +81,7 @@ export default function Home() {
         <span style={{ color: '#E8B84B', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Acupuncture & Eastern Medicine</span>
         <h1 className="hero-h1" style={{ color: '#FFF8EE', fontSize: '48px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: 1.1 }}>Glow Wellness</h1>
         <p style={{ color: '#D4C4B0', fontSize: '15px', lineHeight: 1.8, maxWidth: '440px' }}>
-          Restoring balance through time-honored Eastern medicine.<br />Serving Orange and Los Angeles counties.
+          Restoring balance through time-honored Eastern medicine. Serving Orange and Los Angeles counties.
         </p>
         <p style={{ color: '#E8B84B', fontSize: '13px', marginTop: '8px' }}>
           Call or text to schedule &middot;{' '}
@@ -109,8 +109,8 @@ export default function Home() {
 
           <div className="grid-2" style={{ marginBottom: '20px' }}>
             {[
-              { name: 'Jiyeon Lee, L.Ac., DAcHM', title: 'Co-founder & Licensed Acupuncturist', bio: 'Licensed since 2015, Jiyeon brings a unique dual perspective — trained first as a registered nurse in South Korea, she bridges Western clinical care with the holistic principles of acupuncture and herbal medicine.' },
-              { name: 'Jun Woo Kim, L.Ac., DAcHM', title: 'Co-founder & Licensed Acupuncturist', bio: 'Licensed since 2015, Jun Woo holds a Bachelor\'s in Biochemistry and a Doctorate in Acupuncture and Herbal Medicine. He serves as faculty at South Baylo, Dongguk, and Wongu University, bringing academic rigor to every patient visit.' },
+              { name: 'Dr. Lee, L.Ac., DAcHM', title: 'Co-founder & Practitioner', bio: 'Licensed since 2015, Jiyeon brings a unique dual perspective — trained first as a registered nurse in South Korea, she bridges Western clinical care with the holistic principles of acupuncture and herbal medicine.' },
+              { name: 'Dr. Kim, L.Ac., DAcHM', title: 'Co-founder & Practitioner', bio: 'Licensed since 2015, Jun Woo holds a Bachelor\'s in Biochemistry and a Doctorate in Acupuncture and Herbal Medicine. He serves as faculty at South Baylo, Dongguk, and Wongu University, bringing academic rigor to every patient visit.' },
             ].map(p => (
               <div key={p.name} style={{ background: 'rgba(255,255,255,0.6)', borderRadius: '12px', padding: '28px', textAlign: 'left' }}>
                 <div style={{ width: '36px', height: '3px', background: '#D4A833', marginBottom: '16px', borderRadius: '2px' }} />
