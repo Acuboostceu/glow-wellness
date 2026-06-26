@@ -124,7 +124,7 @@ export default function Home() {
           <div style={{ background: 'rgba(245,236,216,0.7)', borderRadius: '12px', padding: '24px', textAlign: 'left' }}>
             <p style={{ color: '#7A6A58', fontSize: '13px', lineHeight: 1.7 }}>
               <span style={{ color: '#A87820', fontWeight: 500 }}>A family rooted in healing — </span>
-              Glow Wellness is a second-generation practice. Jun Woo&apos;s father is also a licensed acupuncturist, and this legacy of dedication to Eastern medicine flows through everything we do. Together, Jiyeon and Jun Woo have created a clinic where tradition, science, and compassionate care come together.
+              Glow Wellness is a second-generation practice. Jun Woo&apos;s father is also a Doctor of Eastern Medicine, and this legacy of dedication to Eastern medicine flows through everything we do. Together, Jiyeon and Jun Woo have created a clinic where tradition, science, and compassionate care come together.
             </p>
           </div>
         </div>
@@ -176,7 +176,6 @@ export default function Home() {
       <section id="locations" className="section-pad" style={{ background: 'linear-gradient(180deg, #E8DDD0 0%, #DDD0C0 100%)', paddingTop: '72px', paddingBottom: '72px' }}>
         <div style={{ maxWidth: '860px', margin: '0 auto', textAlign: 'center' }}>
           <span style={tagStyle}>Find us</span>
-          <h2 style={{ color: '#2C1E12', fontSize: '32px', fontWeight: 500, marginBottom: '32px' }}>Two locations</h2>
           <div className="grid-2">
             {[
               { region: 'Orange County', name: 'Newport Beach', address: '2503 Eastbluff Dr. #206E\nNewport Beach, CA 92660', phone: '949-537-9265', tel: '9495379265' },
