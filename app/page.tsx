@@ -142,7 +142,7 @@ export default function Home() {
       {/* WAVE about→modalities */}
       <div style={{ background: '#FBF7F2' }}>
         <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
-          <path d="M0,28 C360,56 720,14 1080,42 C1260,56 1380,28 1440,20 L1440,56 L0,56 Z" fill="#F0E6D8" />
+          <path d="M0,40 C360,0 720,56 1080,28 C1260,14 1380,8 1440,0 L1440,56 L0,56 Z" fill="#FBF7F2" />
         </svg>
       </div>
 
@@ -177,7 +177,7 @@ export default function Home() {
       {/* WAVE modalities→locations */}
       <div style={{ background: '#F0E6D8' }}>
         <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
-          <path d="M0,20 C360,56 720,14 1080,42 C1260,56 1380,28 1440,20 L1440,56 L0,56 Z" fill="#E8DDD0" />
+          <path d="M0,20 C200,56 500,0 800,36 C1000,56 1200,10 1440,28 L1440,56 L0,56 Z" fill="#E8DDD0" />
         </svg>
       </div>
 
@@ -204,7 +204,7 @@ export default function Home() {
       {/* WAVE locations→contact */}
       <div style={{ background: '#DDD0C0' }}>
         <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
-          <path d="M0,20 C360,56 720,14 1080,42 C1260,56 1380,28 1440,20 L1440,56 L0,56 Z" fill="#6A5040" />
+          <path d="M0,28 C300,56 600,0 900,36 C1100,60 1300,10 1440,20 L1440,56 L0,56 Z" fill="#6A5040" />
         </svg>
       </div>
 
