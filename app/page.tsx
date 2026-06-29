@@ -94,7 +94,7 @@ export default function Home() {
       {/* WAVE hero→about */}
       <div style={{ background: '#7A6050' }}>
         <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
-          <path d="M0,40 C320,56 480,44 720,50 C960,56 1120,44 1440,52 L1440,56 L0,56 Z" fill="#EDE3D8" />
+          <path d="M0,20 C200,56 500,0 800,36 C1000,56 1200,10 1440,28 L1440,56 L0,56 Z" fill="#EDE3D8" />
         </svg>
       </div>
 
