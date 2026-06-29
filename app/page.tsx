@@ -37,7 +37,7 @@ export default function Home() {
         .serif { font-family: 'Playfair Display', Georgia, serif; }
         .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 48px; background: #4A3728; position: sticky; top: 0; z-index: 50; border-bottom: 0.5px solid #5C4535; }
         .nav-links { display: flex; gap: 32px; }
-        .nav-logo { width: 140px; height: 36px; }
+        .nav-logo { width: 280px; height: 56px; }
         .section-pad { padding-left: 48px; padding-right: 48px; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -49,7 +49,7 @@ export default function Home() {
         .hero-phones { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
         @media (max-width: 768px) {
           .nav { padding: 12px 20px; }
-          .nav-logo { width: 110px; height: 28px; }
+          .nav-logo { width: 160px; height: 32px; }
           .nav-links { gap: 18px; }
           .nav-links a { font-size: 11px !important; }
           .hero-pad { padding: 48px 20px 40px; }
@@ -71,7 +71,7 @@ export default function Home() {
 
       {/* NAV */}
       <nav className="nav">
-        <Image src="/logo-simple.svg" alt="Glow Wellness" width={160} height={44} className="nav-logo" style={{ objectFit: 'contain' }} />
+        <Image src="/logo-simple.svg" alt="Glow Wellness" width={280} height={56} className="nav-logo" style={{ objectFit: 'contain' }} />
         <div className="nav-links">
           {['About', 'Modalities', 'Locations', 'Contact'].map(item => (
             <a key={item} href={`#${item.toLowerCase()}`} style={{ color: '#E8C97A', fontSize: '12px', letterSpacing: '0.06em', textDecoration: 'none', textTransform: 'uppercase' }}>{item}</a>
