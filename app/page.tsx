@@ -34,8 +34,10 @@ export default function Home() {
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif' }}>
       <style>{`
+        .serif { font-family: 'Playfair Display', Georgia, serif; }
         .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 48px; background: #4A3728; position: sticky; top: 0; z-index: 50; border-bottom: 0.5px solid #5C4535; }
         .nav-links { display: flex; gap: 32px; }
+        .nav-logo { width: 140px; height: 36px; }
         .section-pad { padding-left: 48px; padding-right: 48px; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -43,13 +45,17 @@ export default function Home() {
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .herbal-span { grid-column: span 2; }
         .footer { background: #2C1E12; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; }
-        .hero-pad { padding: 96px 48px 80px; }
+        .hero-pad { padding: 80px 48px 56px; }
+        .hero-phones { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
         @media (max-width: 768px) {
-          .nav { padding: 14px 20px; }
-          .nav-links { gap: 20px; }
+          .nav { padding: 12px 20px; }
+          .nav-logo { width: 110px; height: 28px; }
+          .nav-links { gap: 18px; }
           .nav-links a { font-size: 11px !important; }
-          .hero-pad { padding: 64px 20px 56px; }
-          .hero-h1 { font-size: 36px !important; }
+          .hero-pad { padding: 48px 20px 40px; }
+          .hero-h1 { font-size: 34px !important; }
+          .hero-sub { font-size: 14px !important; }
+          .about-top { padding-top: 48px !important; }
           .section-pad { padding-left: 20px; padding-right: 20px; }
           .grid-2, .grid-3, .contact-grid, .form-grid { grid-template-columns: 1fr; }
           .contact-grid { gap: 32px; }
@@ -65,7 +71,7 @@ export default function Home() {
 
       {/* NAV */}
       <nav className="nav">
-        <Image src="/logo-color.svg" alt="Glow Wellness" width={160} height={40} style={{ objectFit: 'contain' }} />
+        <Image src="/logo-color.svg" alt="Glow Wellness" width={140} height={36} className="nav-logo" style={{ objectFit: 'contain' }} />
         <div className="nav-links">
           {['About', 'Modalities', 'Locations', 'Contact'].map(item => (
             <a key={item} href={`#${item.toLowerCase()}`} style={{ color: '#E8C97A', fontSize: '12px', letterSpacing: '0.06em', textDecoration: 'none', textTransform: 'uppercase' }}>{item}</a>
@@ -79,16 +85,18 @@ export default function Home() {
       {/* HERO */}
       <section className="hero-pad" style={{ background: 'linear-gradient(180deg, #4A3728 0%, #5C4535 70%, #7A6050 100%)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '20px' }}>
         <span style={{ color: '#E8B84B', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Acupuncture & Eastern Medicine</span>
-        <h1 className="hero-h1" style={{ color: '#FFF8EE', fontSize: '48px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: 1.1 }}>Glow Wellness</h1>
-        <p style={{ color: '#D4C4B0', fontSize: '15px', lineHeight: 1.8, maxWidth: '440px' }}>
+        <h1 className="serif hero-h1" style={{ color: '#FFF8EE', fontSize: '52px', fontWeight: 500, letterSpacing: '0.01em', lineHeight: 1.1 }}>Glow Wellness</h1>
+        <p className="hero-sub" style={{ color: '#D4C4B0', fontSize: '15px', lineHeight: 1.8, maxWidth: '420px' }}>
           Restoring balance through time-honored Eastern medicine. Serving Orange and Los Angeles counties.
         </p>
-        <p style={{ color: '#E8B84B', fontSize: '13px', marginTop: '8px' }}>
-          Call or text to schedule &middot;{' '}
-          <a href="tel:9495379265" style={{ color: '#FFF8EE', fontWeight: 500, textDecoration: 'none' }}>949-537-9265</a>
-          {' · '}
-          <a href="tel:5623158111" style={{ color: '#FFF8EE', fontWeight: 500, textDecoration: 'none' }}>562-315-8111</a>
-        </p>
+        <div style={{ marginTop: '4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+          <span style={{ color: '#E8B84B', fontSize: '12px', letterSpacing: '0.04em' }}>Call or text to schedule</span>
+          <div className="hero-phones">
+            <a href="tel:9495379265" style={{ color: '#FFF8EE', fontWeight: 500, fontSize: '14px', textDecoration: 'none' }}>949-537-9265</a>
+            <span style={{ color: '#7A6A58' }}>·</span>
+            <a href="tel:5623158111" style={{ color: '#FFF8EE', fontWeight: 500, fontSize: '14px', textDecoration: 'none' }}>562-315-8111</a>
+          </div>
+        </div>
       </section>
 
       {/* WAVE hero→about */}
@@ -99,10 +107,10 @@ export default function Home() {
       </div>
 
       {/* ABOUT */}
-      <section id="about" className="section-pad" style={{ background: 'linear-gradient(180deg, #EDE3D8 0%, #FBF7F2 100%)', paddingTop: '72px', paddingBottom: 0 }}>
+      <section id="about" className="section-pad about-top" style={{ background: 'linear-gradient(180deg, #EDE3D8 0%, #FBF7F2 100%)', paddingTop: '72px', paddingBottom: 0 }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <span style={tagStyle}>Who we are</span>
-          <h2 style={{ color: '#2C1E12', fontSize: '32px', fontWeight: 500, marginBottom: '16px' }}>Ancient medicine,<br />modern care</h2>
+          <h2 className="serif" style={{ color: '#2C1E12', fontSize: '32px', fontWeight: 500, marginBottom: '16px' }}>Ancient medicine,<br />modern care</h2>
           <p style={{ color: '#7A6A58', fontSize: '15px', lineHeight: 1.8, maxWidth: '600px', margin: '0 auto 40px' }}>
             Glow Wellness is a second-generation family practice rooted in Eastern medicine. Our licensed practitioners combine deep traditional knowledge with modern clinical expertise to restore your body&apos;s natural balance.
           </p>
@@ -131,10 +139,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WAVE about→modalities (tight) */}
+      {/* WAVE about→modalities */}
       <div style={{ background: '#FBF7F2' }}>
         <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
-          <path d="M0,40 C360,0 720,56 1080,28 C1260,14 1380,8 1440,0 L1440,56 L0,56 Z" fill="#FBF7F2" />
+          <path d="M0,28 C360,56 720,14 1080,42 C1260,56 1380,28 1440,20 L1440,56 L0,56 Z" fill="#F0E6D8" />
         </svg>
       </div>
 
@@ -142,7 +150,7 @@ export default function Home() {
       <section id="modalities" className="section-pad" style={{ background: 'linear-gradient(180deg, #FBF7F2 0%, #F0E6D8 100%)', paddingTop: '48px', paddingBottom: '72px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <span style={tagStyle}>What we offer</span>
-          <h2 style={{ color: '#2C1E12', fontSize: '32px', fontWeight: 500, marginBottom: '32px' }}>Our modalities</h2>
+          <h2 className="serif" style={{ color: '#2C1E12', fontSize: '32px', fontWeight: 500, marginBottom: '32px' }}>Our modalities</h2>
           <div className="grid-3">
             {[
               { name: 'Acupuncture', desc: 'Classical and contemporary needling techniques for a wide range of conditions' },
@@ -169,7 +177,7 @@ export default function Home() {
       {/* WAVE modalities→locations */}
       <div style={{ background: '#F0E6D8' }}>
         <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
-          <path d="M0,20 C200,56 500,0 800,36 C1000,56 1200,10 1440,28 L1440,56 L0,56 Z" fill="#E8DDD0" />
+          <path d="M0,20 C360,56 720,14 1080,42 C1260,56 1380,28 1440,20 L1440,56 L0,56 Z" fill="#E8DDD0" />
         </svg>
       </div>
 
@@ -196,7 +204,7 @@ export default function Home() {
       {/* WAVE locations→contact */}
       <div style={{ background: '#DDD0C0' }}>
         <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
-          <path d="M0,28 C300,56 600,0 900,36 C1100,60 1300,10 1440,20 L1440,56 L0,56 Z" fill="#6A5040" />
+          <path d="M0,20 C360,56 720,14 1080,42 C1260,56 1380,28 1440,20 L1440,56 L0,56 Z" fill="#6A5040" />
         </svg>
       </div>
 
@@ -208,7 +216,7 @@ export default function Home() {
             {/* 왼쪽 텍스트 */}
             <div>
               <span style={{ display: 'inline-block', background: '#5C4535', color: '#E8B84B', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase' as const, padding: '3px 12px', borderRadius: '20px', marginBottom: '16px' }}>Get in touch</span>
-              <h2 style={{ color: '#FFF8EE', fontSize: '32px', fontWeight: 500, marginBottom: '16px', lineHeight: 1.2 }}>Send us a message</h2>
+              <h2 className="serif" style={{ color: '#FFF8EE', fontSize: '32px', fontWeight: 500, marginBottom: '16px', lineHeight: 1.2 }}>Send us a message</h2>
               <p style={{ color: '#C4B0A0', fontSize: '14px', lineHeight: 1.8, marginBottom: '24px' }}>We&apos;ll get back to you as soon as possible.</p>
               <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '12px' }}>
                 <a href="tel:9495379265" style={{ color: '#E8B84B', fontSize: '13px', textDecoration: 'none' }}>Newport Beach · 949-537-9265</a>
