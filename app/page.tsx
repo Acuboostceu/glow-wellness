@@ -71,7 +71,7 @@ export default function Home() {
 
       {/* NAV */}
       <nav className="nav">
-        <Image src="/logo-simple.svg" alt="Glow Wellness" width={280} height={56} className="nav-logo" style={{ objectFit: 'contain' }} />
+        <Image src="/logo-simple.png" alt="Glow Wellness" width={280} height={56} className="nav-logo" style={{ objectFit: 'contain' }} />
         <div className="nav-links">
           {['About', 'Modalities', 'Locations', 'Contact'].map(item => (
             <a key={item} href={`#${item.toLowerCase()}`} style={{ color: '#E8C97A', fontSize: '12px', letterSpacing: '0.06em', textDecoration: 'none', textTransform: 'uppercase' }}>{item}</a>
