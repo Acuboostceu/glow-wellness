@@ -62,11 +62,11 @@ export default function Home() {
           .herbal-span { grid-column: span 1; }
           .footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
         }
+        .nav-contact { display: none; }
         @media (max-width: 480px) {
           .nav-links { display: none; }
-          .nav-phone { display: flex !important; }
+          .nav-contact { display: block !important; }
         }
-        .nav-phone { display: none; gap: 16px; }
       `}</style>
 
       {/* NAV */}
@@ -77,9 +77,7 @@ export default function Home() {
             <a key={item} href={`#${item.toLowerCase()}`} style={{ color: '#E8C97A', fontSize: '12px', letterSpacing: '0.06em', textDecoration: 'none', textTransform: 'uppercase' }}>{item}</a>
           ))}
         </div>
-        <div className="nav-phone">
-          <a href="tel:9495379265" style={{ color: '#E8B84B', fontSize: '12px', fontWeight: 500, textDecoration: 'none' }}>949-537-9265</a>
-        </div>
+        <a className="nav-contact" href="#contact" style={{ color: '#E8B84B', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none', border: '0.5px solid #E8B84B', padding: '6px 14px', borderRadius: '20px' }}>Contact</a>
       </nav>
 
       {/* HERO */}
