@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Glow Wellness",
-  description: "Licensed acupuncture and Eastern medicine clinic serving Orange and Los Angeles counties. Two locations: Newport Beach and Hacienda Heights.",
+  description: "Licensed acupuncture and Eastern medicine clinic in Newport Beach, serving Orange County.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

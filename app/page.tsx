@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Home() {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', location: 'Newport Beach', message: '' })
+  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' })
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -18,7 +18,7 @@ export default function Home() {
       })
       if (res.ok) {
         setStatus('sent')
-        setForm({ name: '', phone: '', email: '', location: 'Newport Beach', message: '' })
+        setForm({ name: '', phone: '', email: '', message: '' })
       } else {
         setStatus('error')
       }
@@ -85,14 +85,12 @@ export default function Home() {
         <span style={{ color: '#E8B84B', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Acupuncture & Eastern Medicine</span>
         <h1 className="serif hero-h1" style={{ color: '#FFF8EE', fontSize: '52px', fontWeight: 500, letterSpacing: '0.01em', lineHeight: 1.1 }}>Glow Wellness</h1>
         <p className="hero-sub" style={{ color: '#D4C4B0', fontSize: '15px', lineHeight: 1.8, maxWidth: '420px' }}>
-          Restoring balance through time-honored Eastern medicine. Serving Orange and Los Angeles counties.
+          Restoring balance through time-honored Eastern medicine. Serving Orange County.
         </p>
         <div style={{ marginTop: '4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
           <span style={{ color: '#E8B84B', fontSize: '12px', letterSpacing: '0.04em' }}>Call or text to schedule</span>
           <div className="hero-phones">
             <a href="tel:9495379265" style={{ color: '#FFF8EE', fontWeight: 500, fontSize: '14px', textDecoration: 'none' }}>949-537-9265</a>
-            <span style={{ color: '#7A6A58' }}>·</span>
-            <a href="tel:5623158111" style={{ color: '#FFF8EE', fontWeight: 500, fontSize: '14px', textDecoration: 'none' }}>562-315-8111</a>
           </div>
         </div>
       </section>
@@ -183,10 +181,9 @@ export default function Home() {
       <section id="locations" className="section-pad" style={{ background: 'linear-gradient(180deg, #E8DDD0 0%, #DDD0C0 100%)', paddingTop: '72px', paddingBottom: '72px' }}>
         <div style={{ maxWidth: '860px', margin: '0 auto', textAlign: 'center' }}>
           <span style={tagStyle}>Find us</span>
-          <div className="grid-2">
+          <div style={{ maxWidth: '420px', margin: '0 auto' }}>
             {[
               { region: 'Orange County', name: 'Newport Beach', address: '2503 Eastbluff Dr. #206E\nNewport Beach, CA 92660', phone: '949-537-9265', tel: '9495379265' },
-              { region: 'Los Angeles County', name: 'Hacienda Heights', address: '3120 S. Hacienda Blvd #203B\nHacienda Heights, CA 91745', phone: '562-315-8111', tel: '5623158111' },
             ].map(loc => (
               <div key={loc.name} style={{ background: 'rgba(255,255,255,0.75)', border: '0.5px solid #D8CEC0', borderRadius: '12px', padding: '28px', textAlign: 'left' }}>
                 <span style={{ display: 'inline-block', background: '#F5ECD8', color: '#A87820', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: '20px', marginBottom: '12px' }}>{loc.region}</span>
@@ -218,7 +215,6 @@ export default function Home() {
               <p style={{ color: '#C4B0A0', fontSize: '14px', lineHeight: 1.8, marginBottom: '24px' }}>We&apos;ll get back to you as soon as possible.</p>
               <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '12px' }}>
                 <a href="tel:9495379265" style={{ color: '#E8B84B', fontSize: '13px', textDecoration: 'none' }}>Newport Beach · 949-537-9265</a>
-                <a href="tel:5623158111" style={{ color: '#E8B84B', fontSize: '13px', textDecoration: 'none' }}>Hacienda Heights · 562-315-8111</a>
               </div>
             </div>
 
@@ -237,22 +233,11 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="form-grid">
-                <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
-                  <label style={labelStyle}>Email</label>
-                  <input type="email" placeholder="your@email.com" value={form.email}
-                    onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
-                    style={inputStyle} />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
-                  <label style={labelStyle}>Preferred location</label>
-                  <select value={form.location} onChange={e => setForm(p => ({ ...p, location: e.target.value }))}
-                    style={inputStyle}>
-                    <option>Newport Beach</option>
-                    <option>Hacienda Heights</option>
-                    <option>No preference</option>
-                  </select>
-                </div>
+              <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
+                <label style={labelStyle}>Email</label>
+                <input type="email" placeholder="your@email.com" value={form.email}
+                  onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
+                  style={inputStyle} />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
                 <label style={labelStyle}>Message</label>
