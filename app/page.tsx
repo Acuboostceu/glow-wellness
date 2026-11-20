@@ -90,6 +90,8 @@ export default function Home() {
         <div style={{ marginTop: '4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
           <span style={{ color: '#E8B84B', fontSize: '12px', letterSpacing: '0.04em' }}>Call or text to schedule</span>
           <div className="hero-phones">
+            <a href="tel:9497720033" style={{ color: '#FFF8EE', fontWeight: 500, fontSize: '14px', textDecoration: 'none' }}>949-772-0033</a>
+            <span style={{ color: '#7A6A58' }}>·</span>
             <a href="tel:9495379265" style={{ color: '#FFF8EE', fontWeight: 500, fontSize: '14px', textDecoration: 'none' }}>949-537-9265</a>
           </div>
         </div>
@@ -183,13 +185,17 @@ export default function Home() {
           <span style={tagStyle}>Find us</span>
           <div style={{ maxWidth: '420px', margin: '0 auto' }}>
             {[
-              { region: 'Orange County', name: 'Newport Beach', address: '2503 Eastbluff Dr. #206E\nNewport Beach, CA 92660', phone: '949-537-9265', tel: '9495379265' },
+              { region: 'Orange County', name: 'Newport Beach', address: '2503 Eastbluff Dr. #206E\nNewport Beach, CA 92660', phones: [{ phone: '949-772-0033', tel: '9497720033' }, { phone: '949-537-9265', tel: '9495379265' }] },
             ].map(loc => (
               <div key={loc.name} style={{ background: 'rgba(255,255,255,0.75)', border: '0.5px solid #D8CEC0', borderRadius: '12px', padding: '28px', textAlign: 'left' }}>
                 <span style={{ display: 'inline-block', background: '#F5ECD8', color: '#A87820', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: '20px', marginBottom: '12px' }}>{loc.region}</span>
                 <h3 style={{ color: '#2C1E12', fontSize: '16px', fontWeight: 500, marginBottom: '16px' }}>{loc.name}</h3>
                 <p style={{ color: '#7A6A58', fontSize: '13px', lineHeight: 1.7, marginBottom: '12px', whiteSpace: 'pre-line' }}>{loc.address}</p>
-                <a href={`tel:${loc.tel}`} style={{ color: '#4A3728', fontSize: '15px', fontWeight: 500, textDecoration: 'none' }}>{loc.phone}</a>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  {loc.phones.map(ph => (
+                    <a key={ph.tel} href={`tel:${ph.tel}`} style={{ color: '#4A3728', fontSize: '15px', fontWeight: 500, textDecoration: 'none' }}>{ph.phone}</a>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
@@ -214,6 +220,7 @@ export default function Home() {
               <h2 className="serif" style={{ color: '#FFF8EE', fontSize: '32px', fontWeight: 500, marginBottom: '16px', lineHeight: 1.2 }}>Send us a message</h2>
               <p style={{ color: '#C4B0A0', fontSize: '14px', lineHeight: 1.8, marginBottom: '24px' }}>We&apos;ll get back to you as soon as possible.</p>
               <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '12px' }}>
+                <a href="tel:9497720033" style={{ color: '#E8B84B', fontSize: '13px', textDecoration: 'none' }}>Newport Beach · 949-772-0033</a>
                 <a href="tel:9495379265" style={{ color: '#E8B84B', fontSize: '13px', textDecoration: 'none' }}>Newport Beach · 949-537-9265</a>
               </div>
             </div>
