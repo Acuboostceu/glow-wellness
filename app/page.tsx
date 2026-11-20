@@ -43,7 +43,7 @@ export default function Home() {
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         .contact-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start; }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .herbal-span { grid-column: span 2; }
+        .herbal-span { grid-column: span 1; }
         .footer { background: #2C1E12; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; }
         .hero-pad { padding: 80px 48px 56px; }
         .hero-phones { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
@@ -156,6 +156,7 @@ export default function Home() {
               { name: 'Electroacupuncture', desc: 'Enhanced stimulation for pain management and nerve conditions' },
               { name: 'Moxibustion', desc: 'Warming therapy using moxa to tonify qi and promote circulation' },
               { name: 'Cupping', desc: 'Myofascial release and circulation support through suction therapy' },
+              { name: 'Cosmetic Acupuncture', desc: 'Gentle facial needling to support circulation, skin tone, and a naturally refreshed complexion' },
             ].map(m => (
               <div key={m.name} style={{ background: 'rgba(255,255,255,0.85)', border: '0.5px solid #E0D4C4', borderRadius: '12px', padding: '24px', textAlign: 'left' }}>
                 <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A833', marginBottom: '14px' }} />
