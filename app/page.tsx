@@ -94,6 +94,7 @@ export default function Home() {
             <span style={{ color: '#7A6A58' }}>·</span>
             <a href="tel:9495379265" style={{ color: '#FFF8EE', fontWeight: 500, fontSize: '14px', textDecoration: 'none' }}>949-537-9265</a>
           </div>
+          <a href="sms:+19497720033" style={{ marginTop: '8px', display: 'inline-block', border: '1px solid #E8B84B', color: '#E8B84B', fontSize: '13px', fontWeight: 500, letterSpacing: '0.04em', padding: '8px 20px', borderRadius: '24px', textDecoration: 'none' }}>Text us · 949-772-0033</a>
         </div>
       </section>
 
@@ -195,6 +196,7 @@ export default function Home() {
                   {loc.phones.map(ph => (
                     <a key={ph.tel} href={`tel:${ph.tel}`} style={{ color: '#4A3728', fontSize: '15px', fontWeight: 500, textDecoration: 'none' }}>{ph.phone}</a>
                   ))}
+                  <a href="sms:+19497720033" style={{ color: '#A87820', fontSize: '13px', textDecoration: 'none', marginTop: '4px' }}>Text 949-772-0033</a>
                 </div>
               </div>
             ))}
@@ -222,6 +224,7 @@ export default function Home() {
               <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '12px' }}>
                 <a href="tel:9497720033" style={{ color: '#E8B84B', fontSize: '13px', textDecoration: 'none' }}>Newport Beach · 949-772-0033</a>
                 <a href="tel:9495379265" style={{ color: '#E8B84B', fontSize: '13px', textDecoration: 'none' }}>Newport Beach · 949-537-9265</a>
+                <a href="sms:+19497720033" style={{ color: '#E8B84B', fontSize: '13px', textDecoration: 'none' }}>Text us · 949-772-0033</a>
               </div>
             </div>
 
