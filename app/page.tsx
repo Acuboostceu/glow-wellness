@@ -27,14 +27,20 @@ export default function Home() {
     }
   }
 
-  const inputStyle = { background: '#5C4535', border: '0.5px solid #6A5040', borderRadius: '6px', padding: '10px 14px', color: '#FFF8EE', fontSize: '13px', outline: 'none', width: '100%' }
-  const labelStyle = { color: '#E8B84B', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase' as const }
-  const tagStyle = { display: 'inline-block', background: '#F5ECD8', color: '#A87820', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase' as const, padding: '3px 12px', borderRadius: '20px', marginBottom: '16px' }
+  const inputStyle = { background: '#5C4535', border: '1px solid #B09A86', borderRadius: '6px', padding: '10px 14px', color: '#FFF8EE', fontSize: '14px', width: '100%' }
+  const labelStyle = { color: '#E8B84B', fontSize: '12px', letterSpacing: '0.08em', textTransform: 'uppercase' as const }
+  const tagStyle = { display: 'inline-block', background: '#F5ECD8', color: '#8A5F12', fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase' as const, padding: '3px 12px', borderRadius: '20px', marginBottom: '16px' }
 
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif' }}>
       <style>{`
         .serif { font-family: 'Playfair Display', Georgia, serif; }
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid #E8B84B; outline-offset: 2px; }
+        #about a:focus-visible, #modalities a:focus-visible, #locations a:focus-visible { outline-color: #8A5F12; }
+        input::placeholder, textarea::placeholder { color: #D4C4B0; opacity: 1; }
+        .skip-link { position: absolute; left: 12px; top: -48px; z-index: 100; background: #E8B84B; color: #2C1E12; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: 500; text-decoration: none; }
+        .skip-link:focus { top: 12px; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
         .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 48px; background: #4A3728; position: sticky; top: 0; z-index: 50; border-bottom: 0.5px solid #5C4535; }
         .nav-links { display: flex; gap: 32px; }
         .nav-logo { width: 48px; height: 48px; }
@@ -44,7 +50,7 @@ export default function Home() {
         .contact-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start; }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .herbal-span { grid-column: span 1; }
-        .footer { background: #2C1E12; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; }
+        .footer { background: #2C1E12; padding: 24px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; }
         .hero-pad { padding: 80px 48px 56px; }
         .hero-phones { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
         @media (max-width: 768px) {
@@ -69,8 +75,10 @@ export default function Home() {
         }
       `}</style>
 
+      <a href="#main" className="skip-link">Skip to main content</a>
+
       {/* NAV */}
-      <nav className="nav">
+      <nav className="nav" aria-label="Main">
         <Image src="/logo-sq.png" alt="Glow Wellness" width={48} height={48} className="nav-logo" style={{ objectFit: 'contain' }} />
         <div className="nav-links">
           {['About', 'Modalities', 'Locations', 'Contact'].map(item => (
@@ -80,6 +88,7 @@ export default function Home() {
         <a className="nav-contact" href="#contact" style={{ color: '#E8B84B', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', textDecoration: 'none', border: '0.5px solid #E8B84B', padding: '6px 14px', borderRadius: '20px' }}>Contact</a>
       </nav>
 
+      <main id="main">
       {/* HERO */}
       <section className="hero-pad" style={{ background: 'linear-gradient(180deg, #4A3728 0%, #5C4535 70%, #7A6050 100%)', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '20px' }}>
         <span style={{ color: '#E8B84B', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Acupuncture & Eastern Medicine</span>
@@ -91,16 +100,16 @@ export default function Home() {
           <span style={{ color: '#E8B84B', fontSize: '12px', letterSpacing: '0.04em' }}>Call or text to schedule</span>
           <div className="hero-phones">
             <a href="tel:9497720033" style={{ color: '#FFF8EE', fontWeight: 500, fontSize: '14px', textDecoration: 'none' }}>949-772-0033</a>
-            <span style={{ color: '#7A6A58' }}>·</span>
+            <span aria-hidden="true" style={{ color: '#7A6A58' }}>·</span>
             <a href="tel:9495379265" style={{ color: '#FFF8EE', fontWeight: 500, fontSize: '14px', textDecoration: 'none' }}>949-537-9265</a>
           </div>
-          <a href="sms:+19497720033" style={{ marginTop: '8px', display: 'inline-block', border: '1px solid #E8B84B', color: '#E8B84B', fontSize: '13px', fontWeight: 500, letterSpacing: '0.04em', padding: '8px 20px', borderRadius: '24px', textDecoration: 'none' }}>Text us · 949-772-0033</a>
+          <a href="sms:+19497720033" style={{ marginTop: '8px', display: 'inline-block', background: '#4A3728', border: '1px solid #E8B84B', color: '#E8B84B', fontSize: '13px', fontWeight: 500, letterSpacing: '0.04em', padding: '8px 20px', borderRadius: '24px', textDecoration: 'none' }}>Text us · 949-772-0033</a>
         </div>
       </section>
 
       {/* WAVE hero→about */}
       <div style={{ background: '#7A6050', marginBottom: '-1px' }}>
-        <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
           <path d="M0,20 C200,56 500,0 800,36 C1000,56 1200,10 1440,28 L1440,56 L0,56 Z" fill="#EDE3D8" />
         </svg>
       </div>
@@ -110,7 +119,7 @@ export default function Home() {
         <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <span style={tagStyle}>Who we are</span>
           <h2 className="serif" style={{ color: '#2C1E12', fontSize: '32px', fontWeight: 500, marginBottom: '16px' }}>Ancient medicine,<br />modern care</h2>
-          <p style={{ color: '#7A6A58', fontSize: '15px', lineHeight: 1.8, maxWidth: '600px', margin: '0 auto 40px' }}>
+          <p style={{ color: '#5E4E3E', fontSize: '15px', lineHeight: 1.8, maxWidth: '600px', margin: '0 auto 40px' }}>
             Glow Wellness is a second-generation family practice rooted in Eastern medicine. Our licensed practitioners combine deep traditional knowledge with modern clinical expertise to restore your body&apos;s natural balance.
           </p>
 
@@ -123,15 +132,15 @@ export default function Home() {
                 <Image src={p.photo} alt={p.name} width={56} height={56} style={{ position: 'absolute', top: '20px', right: '20px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'top' }} />
                 <div style={{ width: '36px', height: '3px', background: '#D4A833', borderRadius: '2px', marginBottom: '16px' }} />
                 <h3 style={{ color: '#2C1E12', fontSize: '15px', fontWeight: 500, marginBottom: '4px' }}>{p.name}</h3>
-                <p style={{ color: '#D4A833', fontSize: '11px', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '12px' }}>{p.title}</p>
-                <p style={{ color: '#7A6A58', fontSize: '13px', lineHeight: 1.7 }}>{p.bio}</p>
+                <p style={{ color: '#8A6418', fontSize: '12px', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '12px' }}>{p.title}</p>
+                <p style={{ color: '#5E4E3E', fontSize: '13px', lineHeight: 1.7 }}>{p.bio}</p>
               </div>
             ))}
           </div>
 
           <div style={{ background: 'rgba(245,236,216,0.7)', borderRadius: '12px', padding: '24px', textAlign: 'left' }}>
-            <p style={{ color: '#7A6A58', fontSize: '13px', lineHeight: 1.7 }}>
-              <span style={{ color: '#A87820', fontWeight: 500 }}>A family rooted in healing — </span>
+            <p style={{ color: '#5E4E3E', fontSize: '13px', lineHeight: 1.7 }}>
+              <span style={{ color: '#8A5F12', fontWeight: 500 }}>A family rooted in healing — </span>
               Glow Wellness is a second-generation practice. Dr. Kim&apos;s father is also a Doctor of Eastern Medicine, and this legacy of dedication to Eastern medicine flows through everything we do. Together, Dr. Lee and Dr. Kim have created a clinic where tradition, science, and compassionate care come together.
             </p>
           </div>
@@ -140,7 +149,7 @@ export default function Home() {
 
       {/* WAVE about→modalities */}
       <div style={{ background: '#FBF7F2' }}>
-        <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
           <path d="M0,40 C360,0 720,56 1080,28 C1260,14 1380,8 1440,0 L1440,56 L0,56 Z" fill="#FBF7F2" />
         </svg>
       </div>
@@ -161,14 +170,14 @@ export default function Home() {
               <div key={m.name} style={{ background: 'rgba(255,255,255,0.85)', border: '0.5px solid #E0D4C4', borderRadius: '12px', padding: '24px', textAlign: 'left' }}>
                 <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A833', marginBottom: '14px' }} />
                 <h3 style={{ color: '#2C1E12', fontSize: '14px', fontWeight: 500, marginBottom: '6px' }}>{m.name}</h3>
-                <p style={{ color: '#9A8A78', fontSize: '12px', lineHeight: 1.6 }}>{m.desc}</p>
+                <p style={{ color: '#6B5A48', fontSize: '13px', lineHeight: 1.6 }}>{m.desc}</p>
               </div>
             ))}
             <div className="herbal-span" style={{ background: 'rgba(255,255,255,0.85)', border: '0.5px solid #E0D4C4', borderRadius: '12px', padding: '24px', textAlign: 'left' }}>
               <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A833', marginBottom: '14px' }} />
               <h3 style={{ color: '#2C1E12', fontSize: '14px', fontWeight: 500, marginBottom: '6px' }}>Herbal Medicine</h3>
-              <p style={{ color: '#9A8A78', fontSize: '12px', lineHeight: 1.6 }}>Custom formulas tailored to your constitution and condition</p>
-              <p style={{ color: '#C4A860', fontSize: '11px', marginTop: '8px' }}>Available as Powder · Capsule · Decoction</p>
+              <p style={{ color: '#6B5A48', fontSize: '13px', lineHeight: 1.6 }}>Custom formulas tailored to your constitution and condition</p>
+              <p style={{ color: '#8A6418', fontSize: '12px', marginTop: '8px' }}>Available as Powder · Capsule · Decoction</p>
             </div>
           </div>
         </div>
@@ -176,7 +185,7 @@ export default function Home() {
 
       {/* WAVE modalities→locations */}
       <div style={{ background: '#F0E6D8' }}>
-        <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
           <path d="M0,20 C200,56 500,0 800,36 C1000,56 1200,10 1440,28 L1440,56 L0,56 Z" fill="#E8DDD0" />
         </svg>
       </div>
@@ -190,14 +199,14 @@ export default function Home() {
               { region: 'Orange County', name: 'Newport Beach', address: '2503 Eastbluff Dr. #206E\nNewport Beach, CA 92660', phones: [{ phone: '949-772-0033', tel: '9497720033' }, { phone: '949-537-9265', tel: '9495379265' }] },
             ].map(loc => (
               <div key={loc.name} style={{ background: 'rgba(255,255,255,0.75)', border: '0.5px solid #D8CEC0', borderRadius: '12px', padding: '28px', textAlign: 'left' }}>
-                <span style={{ display: 'inline-block', background: '#F5ECD8', color: '#A87820', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: '20px', marginBottom: '12px' }}>{loc.region}</span>
+                <span style={{ display: 'inline-block', background: '#F5ECD8', color: '#8A5F12', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: '20px', marginBottom: '12px' }}>{loc.region}</span>
                 <h3 style={{ color: '#2C1E12', fontSize: '16px', fontWeight: 500, marginBottom: '16px' }}>{loc.name}</h3>
-                <p style={{ color: '#7A6A58', fontSize: '13px', lineHeight: 1.7, marginBottom: '12px', whiteSpace: 'pre-line' }}>{loc.address}</p>
+                <p style={{ color: '#5E4E3E', fontSize: '13px', lineHeight: 1.7, marginBottom: '12px', whiteSpace: 'pre-line' }}>{loc.address}</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   {loc.phones.map(ph => (
                     <a key={ph.tel} href={`tel:${ph.tel}`} style={{ color: '#4A3728', fontSize: '15px', fontWeight: 500, textDecoration: 'none' }}>{ph.phone}</a>
                   ))}
-                  <a href="sms:+19497720033" style={{ color: '#A87820', fontSize: '13px', textDecoration: 'none', marginTop: '4px' }}>Text 949-772-0033</a>
+                  <a href="sms:+19497720033" style={{ color: '#8A5F12', fontSize: '13px', textDecoration: 'none', marginTop: '4px' }}>Text 949-772-0033</a>
                 </div>
               </div>
             ))}
@@ -207,7 +216,7 @@ export default function Home() {
 
       {/* WAVE locations→contact */}
       <div style={{ background: '#DDD0C0' }}>
-        <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: '56px' }}>
           <path d="M0,28 C300,56 600,0 900,36 C1100,60 1300,10 1440,20 L1440,56 L0,56 Z" fill="#6A5040" />
         </svg>
       </div>
@@ -230,46 +239,54 @@ export default function Home() {
             </div>
 
             {/* 오른쪽 폼 */}
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' as const, gap: '16px' }}>
+            <form onSubmit={handleSubmit} aria-label="Contact form" style={{ display: 'flex', flexDirection: 'column' as const, gap: '16px' }}>
               <div className="form-grid">
                 {[
-                  { label: 'Name', key: 'name', type: 'text', placeholder: 'Your name' },
-                  { label: 'Phone', key: 'phone', type: 'tel', placeholder: '(949) 000-0000' },
+                  { label: 'Name', key: 'name', type: 'text', placeholder: 'Your name', autoComplete: 'name', required: true },
+                  { label: 'Phone', key: 'phone', type: 'tel', placeholder: '(949) 000-0000', autoComplete: 'tel', required: false },
                 ].map(f => (
                   <div key={f.key} style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
-                    <label style={labelStyle}>{f.label}</label>
-                    <input type={f.type} placeholder={f.placeholder} value={form[f.key as keyof typeof form]}
+                    <label htmlFor={`contact-${f.key}`} style={labelStyle}>{f.label}{f.required && <span aria-hidden="true"> *</span>}</label>
+                    <input id={`contact-${f.key}`} name={f.key} type={f.type} autoComplete={f.autoComplete} required={f.required} placeholder={f.placeholder} value={form[f.key as keyof typeof form]}
                       onChange={e => setForm(p => ({ ...p, [f.key]: e.target.value }))}
                       style={inputStyle} />
                   </div>
                 ))}
               </div>
               <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
-                <label style={labelStyle}>Email</label>
-                <input type="email" placeholder="your@email.com" value={form.email}
+                <label htmlFor="contact-email" style={labelStyle}>Email <span aria-hidden="true">*</span></label>
+                <input id="contact-email" name="email" type="email" autoComplete="email" required placeholder="your@email.com" value={form.email}
                   onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
                   style={inputStyle} />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
-                <label style={labelStyle}>Message</label>
-                <textarea placeholder="Tell us how we can help..." value={form.message} rows={4}
+                <label htmlFor="contact-message" style={labelStyle}>Message <span aria-hidden="true">*</span></label>
+                <textarea id="contact-message" name="message" required placeholder="Tell us how we can help..." value={form.message} rows={4}
                   onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
                   style={{ ...inputStyle, resize: 'none' as const, fontFamily: 'inherit' }} />
               </div>
               <button type="submit" disabled={status === 'sending'}
-                style={{ background: '#E8B84B', color: '#2C1E12', border: 'none', padding: '12px 28px', borderRadius: '4px', fontSize: '12px', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase' as const, cursor: 'pointer', alignSelf: 'flex-start' }}>
-                {status === 'sending' ? 'Sending...' : 'Send message'}
+                style={{ background: '#E8B84B', color: '#2C1E12', border: 'none', padding: '12px 28px', borderRadius: '4px', fontSize: '13px', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase' as const, cursor: 'pointer', alignSelf: 'flex-start' }}>
+                {status === 'sending' ? 'Sending…' : 'Send message'}
               </button>
-              {status === 'sent' && <p style={{ color: '#E8B84B', fontSize: '13px' }}>Message sent! We&apos;ll be in touch soon.</p>}
-              {status === 'error' && <p style={{ color: '#F09595', fontSize: '13px' }}>Something went wrong. Please call us directly.</p>}
+              <p style={{ color: '#C4B0A0', fontSize: '12px' }}><span aria-hidden="true">* </span>Required field</p>
+              <div role="status" aria-live="polite">
+                {status === 'sent' && <p style={{ color: '#E8B84B', fontSize: '14px' }}>Message sent! We&apos;ll be in touch soon.</p>}
+                {status === 'error' && <p style={{ color: '#F09595', fontSize: '14px' }}>Something went wrong. Please call or text us at 949-772-0033.</p>}
+              </div>
             </form>
           </div>
         </div>
       </section>
 
+      </main>
+
       {/* FOOTER */}
       <footer className="footer">
-        <span style={{ color: '#6B5E50', fontSize: '11px' }}>© 2026 Glow Wellness · Licensed Acupuncture & Eastern Medicine</span>
+        <p style={{ color: '#B09A86', fontSize: '12px', lineHeight: 1.6, flexBasis: '100%' }}>
+          Accessibility: We want everyone to be able to use this website. If you have trouble accessing any content, please call or text <a href="tel:9497720033" style={{ color: '#E8B84B', textDecoration: 'underline' }}>949-772-0033</a> and we will assist you.
+        </p>
+        <span style={{ color: '#B09A86', fontSize: '12px' }}>© 2026 Glow Wellness · Licensed Acupuncture & Eastern Medicine</span>
         <span style={{ color: '#D4A833', fontSize: '11px' }}>glowpw.com</span>
       </footer>
 
